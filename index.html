@@ -44,7 +44,7 @@ button{cursor:pointer}
 .toolbar input{flex:1;min-width:190px}
 .tablewrap{overflow:auto}
 table{border-collapse:collapse;width:100%;white-space:nowrap}
-th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #edf1f6;vertical-align:middle}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #edf1f6}
 th{font-size:10px;color:var(--muted);letter-spacing:.6px;text-transform:uppercase;background:#fafcff}
 td{font-size:12px}
 .link{border:0;background:none;color:var(--blue);font-weight:700;padding:3px}
@@ -77,11 +77,6 @@ td{font-size:12px}
 .bar{height:8px;border-radius:20px;background:#e8eef7;overflow:hidden}
 .bar span{display:block;height:100%;background:#4779ed}
 .fileinput{max-width:100%}
-
-/* Profile Picture Thumbnails */
-.avatar-thumb{width:38px;height:38px;border-radius:50%;object-fit:cover;border:1px solid var(--line);background:#e2e8f0;display:inline-flex;align-items:center;justify-content:center;color:var(--muted);font-size:16px;font-weight:bold}
-.avatar-preview{width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid var(--blue);background:#e2e8f0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:28px}
-
 @media(max-width:900px){.shell{grid-template-columns:1fr}.side{padding:12px;gap:5px}.nav{display:flex;flex-wrap:wrap}.nav button{width:auto}.group{display:none}.sidefoot{display:none}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.content{padding:18px}.top{padding:0 18px}}
 @media(max-width:520px){.stats,.cards2,.formgrid{grid-template-columns:1fr}.heading{display:block}.actions{margin-top:12px}.field.full{grid-column:auto}}
 </style>
@@ -326,7 +321,7 @@ td{font-size:12px}
 <script>
 const schema={
   applications:{title:'Applicant',fields:[['id','Application ID','text',1],['fullName','Full name','text',1],['firstName','First name','text'],['lastName','Last name','text'],['date','Application date','date'],['regDate','Registration date','date'],['status','Status','select',1,['New','Shortlisted','Interview','Recommended','Hired','Rejected']],['role','Position applied for','text'],['education','Education / qualification','text'],['email','Email address','email'],['phone','Contact number','tel'],['residence','Residence','text'],['origin','Province / origin','text'],['age','Age','number'],['height','Height','text'],['weight','Weight','text'],['reference','Reference','text'],['policeClearance','Police clearance','select',0,['Not checked','Pending','Yes','No']],['medicalClearance','Medical clearance','select',0,['Not checked','Pending','Yes','No']],['bankAccount','Bank account details','text'],['experience','Experience','textarea'],['knowledge','Knowledge assessment','text'],['communication','Communication','text'],['problemSolving','Problem solving','text'],['teamWork','Team work','text'],['organisational','Organisational skills','text'],['adaptability','Adaptability','text'],['culturalFit','Cultural fit','text'],['punctuality','Attendance / punctuality','text'],['trainings','Trainings','textarea'],['drivingClass','Driving class','text'],['licenseType','License type','text'],['licenseNumber','License number','text'],['issueDate','License issue date','date'],['expiryDate','License expiry date','date'],['recommendation','Recommendation','textarea'],['notes','Notes / screening comments','textarea']]},
-  employees:{title:'Employee',fields:[['photo','Profile Picture','image',0],['id','Employee ID','text',1],['firstName','First name','text',1],['lastName','Last name','text',1],['name','Full name','text'],['title','Job title','text',1],['department','Department','text'],['callSign','CallSign','text'],['startDate','Start date','date'],['status','Employment status','select',1,['Active','Inactive','On Leave','Exited']],['numberOfYears','Number of years','number'],['email','Email address','email'],['phone','Contact number','tel'],['workLocation','Work location','text'],['supervisor','Department supervisor','text'],['notes','Notes','textarea']]},
+  employees:{title:'Employee',fields:[['id','Employee ID','text',1],['firstName','First name','text',1],['lastName','Last name','text',1],['name','Full name','text'],['title','Job title','text',1],['department','Department','text'],['callSign','CallSign','text'],['startDate','Start date','date'],['status','Employment status','select',1,['Active','Inactive','On Leave','Exited']],['numberOfYears','Number of years','number'],['email','Email address','email'],['phone','Contact number','tel'],['workLocation','Work location','text'],['supervisor','Department supervisor','text'],['notes','Notes','textarea']]},
   training:{title:'Training record',fields:[['id','Training record ID','text',1],['employeeId','Employee ID','text',1],['employeeName','Employee name','text'],['course','Training / course','text',1],['provider','Training provider','text'],['startDate','Start date','date'],['completionDate','Completion date','date'],['attendance','Attendance','select',0,['Pending','Attended','Absent','Completed']],['status','Status','select',0,['Pending','In Progress','Completed','Cancelled']],['certificate','Certificate / reference','text'],['notes','Notes','textarea']]},
   leave:{title:'Leave record',fields:[['id','Leave record ID','text',1],['employeeId','Employee ID','text',1],['employeeName','Employee name','text'],['department','Department','text'],['leaveMode','Leave mode / type','select',1,['Annual Leave','Sick Leave','Compassionate Leave','Unpaid Leave','Other']],['startDate','Leave start date','date',1],['dueDate','Leave due date','date',1],['resumeDate','Resume date','date'],['annualBalance','Accrued annual leave (days)','number'],['sickBalance','Accrued sick leave (days)','number'],['departmentHead','Department head','text'],['status','Approval status','select',1,['Pending','Approved','Declined','Completed']],['approvedBy','Approved by','text'],['notes','Notes','textarea']]},
   exits:{title:'Employee exit record',fields:[['id','Exit record ID','text',1],['employeeId','Employee ID','text',1],['firstName','First name','text'],['lastName','Last name','text'],['department','Department','text'],['position','Position','text'],['callSign','CallSign','text'],['startDate','Start date','date'],['exitDate','Exit date','date',1],['exitMode','Exit mode','select',1,['Resignation','Termination','Retirement','End of contract','Transfer','Other']],['reason','Reason for exit','textarea'],['exitPayment','Exit payment','select',0,['Pending','Approved','Paid','Not applicable']],['amountPaid','Amount paid','number'],['paidDays','Paid days','number'],['approverName','Approver name','text'],['endorserName','Endorser name','text'],['workLocation','Work location','text'],['lastDateLeaveTaken','Last date leave taken','date'],['pPE','PPE returned / outstanding','text'],['notes','Handover / notes','textarea']]},
@@ -368,7 +363,7 @@ function pill(v){return `<span class="pill ${esc(v||'Pending')}">${esc(v||'Pendi
 function columns(kind){
   return {
     applications:[['id','Application ID'],['fullName','Applicant'],['role','Position'],['date','Application date'],['status','Status']],
-    employees:[['photo','Photo'],['id','Employee ID'],['name','Employee'],['title','Job title'],['department','Department'],['startDate','Start date'],['status','Status']],
+    employees:[['id','Employee ID'],['name','Employee'],['title','Job title'],['department','Department'],['startDate','Start date'],['status','Status']],
     training:[['id','Record ID'],['employeeName','Employee'],['course','Training'],['provider','Provider'],['completionDate','Completion date'],['status','Status']],
     leave:[['id','Record ID'],['employeeName','Employee'],['department','Department'],['leaveMode','Leave type'],['startDate','Start date'],['dueDate','Due date'],['status','Status']],
     exits:[['id','Record ID'],['employeeId','Employee ID'],['firstName','First name'],['lastName','Last name'],['department','Department'],['exitDate','Exit date'],['exitMode','Exit mode'],['exitPayment','Exit payment']],
@@ -384,10 +379,7 @@ function renderTable(kind){
   let rows=state[kind]||[],q=($('search-'+kind)?.value\vert{}\vert{}'').toLowerCase(),f=$('filter-'+kind)?.value||'';
   rows=rows.filter(r=>JSON.stringify(r).toLowerCase().includes(q)&&(!f||r.status===f));
   let cols=columns(kind);
-  $('table-'+kind).innerHTML=rows.length?`<div class="tablewrap"><table><thead><tr>${cols.map(c=>`<th>${c[1]}</th>`).join('')}<th>Actions</th></tr></thead><tbody>${rows.map(r=>`<tr>${cols.map(c=>`<td>${
-    c[0]==='photo' ? (r.photo ? `<img src="${r.photo}" class="avatar-thumb" alt="Photo">` : `<div class="avatar-thumb">👤</div>`) :
-    c[0]==='status'||c[0]==='exitPayment'?pill(r[c[0]]):esc(c[0]==='fullName'||c[0]==='name'?fullName(r):r[c[0]]||'—')
-  }</td>`).join('')}<td><button class="link" onclick="editRecord('${kind}','${esc(r.id)}')">Edit</button><button class="link" style="color:var(--red)" onclick="deleteRecord('${kind}','${esc(r.id)}')">Delete</button></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">No records found. Add a record or import a CSV.</div>';
+  $('table-'+kind).innerHTML=rows.length?`<div class="tablewrap"><table><thead><tr>${cols.map(c=>`<th>${c[1]}</th>`).join('')}<th>Actions</th></tr></thead><tbody>${rows.map(r=>`<tr>${cols.map(c=>`<td>${c[0]==='status'||c[0]==='exitPayment'?pill(r[c[0]]):esc(c[0]==='fullName'||c[0]==='name'?fullName(r):r[c[0]]||'—')}</td>`).join('')}<td><button class="link" onclick="editRecord('${kind}','${esc(r.id)}')">Edit</button><button class="link" style="color:var(--red)" onclick="deleteRecord('${kind}','${esc(r.id)}')">Delete</button></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">No records found. Add a record or import a CSV.</div>';
   if($('count-'+kind))$('count-'+kind).textContent=`Showing ${rows.length} of ${(state[kind]||[]).length} records`;
 }
 
@@ -435,4 +427,131 @@ function editRecord(kind,id){
 }
 
 function deleteRecord(kind,id){
-  if(confirm('Are you sure you want to delete this record?
+  if(confirm('Are you sure you want to delete this record?')){
+    state[kind]=state[kind].filter(r=>r.id!==id);
+    save();
+    toast('Record deleted');
+    renderTable(kind);
+  }
+}
+
+function buildForm(kind,data){
+  $('modalTitle').textContent=(editing.id?'Edit ':'Add ')+schema[kind].title;
+  let fields=schema[kind].fields;
+  $('modalBody').innerHTML=`<div class="formgrid">${fields.map(f=>{
+    let [name,label,type,req,opts]=f;
+    let val=data[name]??'';
+    let isFull=type==='textarea'||name==='notes';
+    let reqAttr=req?'required':'';
+    let inputHtml='';
+    if(type==='select'){
+      inputHtml=`<select id="f_${name}" ${reqAttr}>${(opts||[]).map(o=>`<option ${val===o?'selected':''}>${o}</option>`).join('')}</select>`;
+    }else if(type==='textarea'){
+      inputHtml=`<textarea id="f_${name}" ${reqAttr}>${esc(val)}</textarea>`;
+    }else{
+      inputHtml=`<input type="${type}" id="f_${name}" value="${esc(val)}" ${reqAttr}>`;
+    }
+    return `<div class="field ${isFull?'full':''}"><label>${label}${req?' *':''}</label>${inputHtml}</div>`;
+  }).join('')}</div>`;
+  $('modalback').classList.add('open');
+}
+
+function closeModal(){$('modalback').classList.remove('open');editing=null}
+
+function saveRecord(e){
+  e.preventDefault();
+  if(!editing)return;
+  let kind=editing.kind,fields=schema[kind].fields,rec={};
+  fields.forEach(f=>{
+    let name=f[0];
+    rec[name]=$('f_'+name).value;
+  });
+  if(editing.id){
+    let idx=state[kind].findIndex(r=>r.id===editing.id);
+    if(idx!==-1)state[kind][idx]=rec;
+  }else{
+    state[kind].push(rec);
+  }
+  save();
+  closeModal();
+  toast('Record saved');
+  if(current==='dashboard')renderDashboard();
+  else renderTable(kind);
+}
+
+function exportCSV(kind){
+  let rows=state[kind]||[];
+  if(!rows.length){toast('No records to export');return}
+  let keys=Object.keys(rows[0]);
+  let csv=[keys.join(',')].concat(rows.map(r=>keys.map(k=>`"${String(r[k]||'').replace(/"/g,'""')}"`).join(','))).join('\n');
+  let blob=new Blob([csv],{type:'text/csv'});
+  let a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`USS_${kind}_export.csv`;
+  a.click();
+}
+
+function exportBackup(){
+  let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});
+  let a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`USS_DBMS_v3_backup_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+}
+
+function restoreBackup(e){
+  let file=e.target.files[0];
+  if(!file)return;
+  let reader=new FileReader();
+  reader.onload=ex=>{
+    try{
+      let data=JSON.parse(ex.target.result);
+      if(typeof data==='object'){
+        state=data;
+        save();
+        toast('Backup restored');
+        go(current);
+      }
+    }catch(err){alert('Invalid backup JSON file')}
+  };
+  reader.readAsText(file);
+}
+
+function importCSV(){
+  let kind=$('importKind').value,file=$('csvFile').files[0];
+  if(!file){alert('Select a CSV file first');return}
+  let reader=new FileReader();
+  reader.onload=e=>{
+    let lines=e.target.result.split('\n').map(l=>l.trim()).filter(Boolean);
+    if(lines.length<2)return;
+    let headers=lines[0].split(',').map(h=>h.replace(/^"|"$/g,'').trim());
+    let added=0;
+    for(let i=1;i<lines.length;i++){
+      let vals=lines[i].split(',').map(v=>v.replace(/^"|"$/g,'').trim());
+      let rec={};
+      headers.forEach((h,idx)=>{rec[h]=vals[idx]||''});
+      if(!rec.id)rec.id=kind.substring(0,3).toUpperCase()+'-'+Math.floor(1000+Math.random()*9000);
+      state[kind].push(rec);
+      added++;
+    }
+    save();
+    toast(`Imported ${added} records`);
+    go(kind);
+  };
+  reader.readAsText(file);
+}
+
+function clearData(){
+  if(confirm('Are you sure you want to clear all browser records? This cannot be undone.')){
+    state=emptyState();
+    save();
+    toast('Local data cleared');
+    go(current);
+  }
+}
+
+// Initial load
+go('dashboard');
+</script>
+</body>
+</html>
